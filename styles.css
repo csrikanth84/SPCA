@@ -1,0 +1,159 @@
+/* Shared Gradient Pattern */
+:root {
+  --grad-1: radial-gradient(circle at 10% 20%, #001f3f, transparent 50%);
+  --grad-2: radial-gradient(circle at 90% 80%, #ffcc00, transparent 50%);
+  --grad-3: radial-gradient(circle at 50% 50%, #003366, #001a33);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--grad-1), var(--grad-2), var(--grad-3);
+  background-color: #001a33;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Header with Gradient */
+header {
+  padding: 2rem 1rem;
+  background: radial-gradient(circle at center, #ffcc00 30%, #ffd700 70%);
+  color: #061739;
+}
+
+/* Nav with Dark Gradient */
+nav {
+  background: linear-gradient(to right, #000f2c, #001b44);
+  padding: 0.75rem 0;
+}
+
+.logo {
+  width: 30%;
+  max-width: 150px;
+  height: auto;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav a {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Section Panels (About, Content, Contact) */
+.about, .content {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Headings */
+.about h2, .content h2, .sponsor h2 {
+  color: #ffcc00;
+}
+
+/* Paragraphs */
+.about p, .content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Sponsor Section with Gradient */
+.sponsor {
+  background: radial-gradient(circle at 60% 20%, #ffcc00 20%, #e6b800 100%);
+  color: #061739;
+  padding: 2rem 1rem;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Footer Gradient */
+footer {
+  background: linear-gradient(to right, #000814, #001020);
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #cccccc;
+}
+
+/* Sponsor Box */
+.sponsor-logo {
+  max-width: 300px;
+  width: 50%;
+  height: auto;
+  margin: 1rem auto;
+}
+
+.sponsor-name {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Social Icons */
+.social-icons img {
+  width: 32px;
+  height: 32px;
+  margin: 0 8px;
+}
+
+/* Contact Form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+input, textarea {
+  width: 80%;
+  max-width: 400px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 6px;
+  color: #061739;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e6b800;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid #ffcc00;
+}
