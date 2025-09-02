@@ -1,59 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Add Player</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    form { max-width: 400px; margin: auto; display: flex; flex-direction: column; gap: 10px; }
-    input, button { padding: 8px; font-size: 14px; }
-    button { background: #007bff; color: white; border: none; cursor: pointer; }
-    button:hover { background: #0056b3; }
-  </style>
+  <meta charset="UTF-8" />
+  <title>SPCA | Add Player</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h2>Add New Player</h2>
-  <form id="playerForm">
-    <input type="text" id="firstName" placeholder="First Name" required>
-    <input type="text" id="lastName" placeholder="Last Name" required>
-    <input type="text" id="contactInfo" placeholder="Contact Info" required>
-    <input type="text" id="emergencyContact" placeholder="Emergency Contact Number" required>
-    <input type="url" id="cricClubsLink" placeholder="CricClubs Profile Link" required>
-    <label>Profile Picture: <input type="file" id="profilePic" accept="image/*" required></label>
-    <button type="submit">Save Player</button>
-  </form>
+<header>
+    <img src="logo_cleaned.png" alt="SPCA Logo" class="logo" />
+    <h1>South Peninsula Cricket Association</h1>
+    <p class="motto">One Team • One Dream</p>
+</header>
+<header><h1>Add New Player</h1></header>
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
-  <script>
-    document.getElementById("playerForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+<main>
+  <section class="content">
+    <form id="playerForm" class="player-form">
+      <input type="text" id="firstName" placeholder="First Name" required>
+      <input type="text" id="lastName" placeholder="Last Name" required>
+      <input type="text" id="contactInfo" placeholder="Contact Info" required>
+      <input type="text" id="emergencyContact" placeholder="Emergency Contact Number" required>
+      <input type="url" id="cricClubsLink" placeholder="CricClubs Profile Link" required>
+      <label>Profile Picture: <input type="file" id="profilePic" accept="image/*" required></label>
+      <button type="submit" class="button">Save Player</button>
+    </form>
+  </section>
+</main>
 
-      const reader = new FileReader();
-      const file = document.getElementById("profilePic").files[0];
+<footer>
+  <p>&copy; 2024 South Peninsula Cricket Association | spcanet.com</p>
+</footer>
 
-      reader.onload = function() {
-        const player = {
-          firstName: document.getElementById("firstName").value,
-          lastName: document.getElementById("lastName").value,
-          contactInfo: document.getElementById("contactInfo").value,
-          emergencyContact: document.getElementById("emergencyContact").value,
-          cricClubsLink: document.getElementById("cricClubsLink").value,
-          profilePic: reader.result
-        };
+<script>
+  document.getElementById("playerForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-        let players = JSON.parse(localStorage.getItem("players")) || [];
-        players.push(player);
-        localStorage.setItem("players", JSON.stringify(players));
+    const reader = new FileReader();
+    const file = document.getElementById("profilePic").files[0];
 
-        alert("Player added successfully!");
-        window.location.href = "team.html";
+    reader.onload = function() {
+      const player = {
+        firstName: document.getElementById("firstName").value,
+        lastName: document.getElementById("lastName").value,
+        contactInfo: document.getElementById("contactInfo").value,
+        emergencyContact: document.getElementById("emergencyContact").value,
+        cricClubsLink: document.getElementById("cricClubsLink").value,
+        profilePic: reader.result
       };
 
-      if (file) {
-        reader.readAsDataURL(file);
-      } else {
-        alert("Please upload a profile picture.");
-      }
-    });
-  </script>
+      let players = JSON.parse(localStorage.getItem("players")) || [];
+      players.push(player);
+      localStorage.setItem("players", JSON.stringify(players));
+
+      alert("Player added successfully!");
+      window.location.href = "team.html";
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      alert("Please upload a profile picture.");
+    }
+  });
+</script>
 </body>
 </html>
