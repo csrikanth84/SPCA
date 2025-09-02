@@ -1,40 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Our Team</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    .team-container { display: flex; flex-wrap: wrap; gap: 20px; }
-    .player-card { width: 180px; text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 8px; }
-    .player-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; }
-    .add-player-btn { display: inline-block; margin-bottom: 20px; padding: 10px 15px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; }
-    .add-player-btn:hover { background: #1e7e34; }
-  </style>
+  <meta charset="UTF-8" />
+  <title>SPCA | Team</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h2>Team Players</h2>
-  <a href="add-player.html" class="add-player-btn">➕ Add Player</a>
-  
-  <div class="team-container" id="teamContainer"></div>
+<header>
+    <img src="logo_cleaned.png" alt="SPCA Logo" class="logo" />
+    <h1>South Peninsula Cricket Association</h1>
+    <p class="motto">One Team • One Dream</p>
+</header>
+<header><h1>SPCA Team</h1></header>
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
-  <script>
-    const container = document.getElementById("teamContainer");
-    const players = JSON.parse(localStorage.getItem("players")) || [];
+<main>
+  <section class="content">
+    <h2>Meet Our Players</h2>
+    <a href="add-player.html" class="button">➕ Add Player</a>
+    <div class="team-container" id="teamContainer"></div>
+  </section>
+</main>
 
-    if (players.length === 0) {
-      container.innerHTML = "<p>No players added yet.</p>";
-    } else {
-      players.forEach(p => {
-        const card = document.createElement("div");
-        card.className = "player-card";
-        card.innerHTML = `
-          <img src="${p.profilePic}" alt="${p.firstName}">
-          <h4><a href="${p.cricClubsLink}" target="_blank">${p.firstName} ${p.lastName}</a></h4>
-        `;
-        container.appendChild(card);
-      });
-    }
-  </script>
+<footer>
+  <p>&copy; 2024 South Peninsula Cricket Association | spcanet.com</p>
+</footer>
+
+<script>
+  const container = document.getElementById("teamContainer");
+  const players = JSON.parse(localStorage.getItem("players")) || [];
+
+  if (players.length === 0) {
+    container.innerHTML = "<p>No players added yet.</p>";
+  } else {
+    players.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "player-card";
+      card.innerHTML = `
+        <img src="${p.profilePic}" alt="${p.firstName}" class="profile-pic">
+        <h3><a href="${p.cricClubsLink}" target="_blank">${p.firstName} ${p.lastName}</a></h3>
+      `;
+      container.appendChild(card);
+    });
+  }
+</script>
 </body>
 </html>
