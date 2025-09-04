@@ -24,13 +24,15 @@
 
 <main>
   <section class="content">
-    <form id="playerForm" class="player-form">
-      <input type="text" id="firstName" placeholder="First Name" required>
-      <input type="text" id="lastName" placeholder="Last Name" required>
-      <input type="text" id="contactInfo" placeholder="Contact Info" required>
-      <input type="text" id="emergencyContact" placeholder="Emergency Contact Number" required>
-      <input type="url" id="cricClubsLink" placeholder="CricClubs Profile Link" required>
-      <label>Profile Picture: <input type="file" id="profilePic" accept="image/*" required></label>
+    <form id="playerForm" class="player-form" enctype="multipart/form-data">
+      <input type="text" name="firstName" id="firstName" placeholder="First Name" required>
+      <input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
+      <input type="text" name="contactInfo" id="contactInfo" placeholder="Contact Info" required>
+      <input type="text" name="emergencyContact" id="emergencyContact" placeholder="Emergency Contact Number" required>
+      <input type="url" name="cricClubsLink" id="cricClubsLink" placeholder="CricClubs Profile Link" required>
+      <label>Profile Picture: 
+        <input type="file" name="profilePic" id="profilePic" accept="image/*" required>
+      </label>
       <button type="submit" class="button">Save Player</button>
     </form>
   </section>
@@ -41,34 +43,28 @@
 </footer>
 
 <script>
-  document.getElementById("playerForm").addEventListener("submit", function(e) {
+  document.getElementById("playerForm").addEventListener("submit", async function(e) {
     e.preventDefault();
 
-    const reader = new FileReader();
-    const file = document.getElementById("profilePic").files[0];
+    const form = document.getElementById("playerForm");
+    const formData = new FormData(form);
 
-    reader.onload = function() {
-      const player = {
-        firstName: document.getElementById("firstName").value,
-        lastName: document.getElementById("lastName").value,
-        contactInfo: document.getElementById("contactInfo").value,
-        emergencyContact: document.getElementById("emergencyContact").value,
-        cricClubsLink: document.getElementById("cricClubsLink").value,
-        profilePic: reader.result
-      };
+    try {
+      const response = await fetch("https://www.spcanet.com/api/add-player.php", {
+        method: "POST",
+        body: formData
+      });
 
-      let players = JSON.parse(localStorage.getItem("players")) || [];
-      players.push(player);
-      localStorage.setItem("players", JSON.stringify(players));
+      const result = await response.json();
 
-      alert("Player added successfully!");
-      window.location.href = "team.html";
-    };
-
-    if (file) {
-      reader.readAsDataURL(file);
-    } else {
-      alert("Please upload a profile picture.");
+      if (result.success) {
+        alert("Player added successfully!");
+        window.location.href = "team.html";
+      } else {
+        alert("Error: " + result.message);
+      }
+    } catch (error) {
+      alert("Failed to save player: " + error);
     }
   });
 </script>

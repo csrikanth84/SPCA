@@ -11,7 +11,7 @@
     <h1>South Peninsula Cricket Association</h1>
     <p class="motto">One Team • One Dream</p>
 </header>
-<header><h1>SPCA Team</h1></header>
+<header><h1>Our Team</h1></header>
 <nav>
   <ul>
     <li><a href="index.html">Home</a></li>
@@ -19,14 +19,15 @@
     <li><a href="schedule.html">Schedule</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li><a href="add-player.html">Add Player</a></li>
   </ul>
 </nav>
 
 <main>
   <section class="content">
-    <h2>Meet Our Players</h2>
-    <a href="add-player.html" class="button">➕ Add Player</a>
-    <div class="team-container" id="teamContainer"></div>
+    <div id="playersContainer" class="players-grid">
+      <p>Loading team members...</p>
+    </div>
   </section>
 </main>
 
@@ -35,22 +36,38 @@
 </footer>
 
 <script>
-  const container = document.getElementById("teamContainer");
-  const players = JSON.parse(localStorage.getItem("players")) || [];
+  async function loadPlayers() {
+    const container = document.getElementById("playersContainer");
+    try {
+      const response = await fetch("http://spcanet.com/api/get-players.php");
+      const players = await response.json();
 
-  if (players.length === 0) {
-    container.innerHTML = "<p>No players added yet.</p>";
-  } else {
-    players.forEach(p => {
-      const card = document.createElement("div");
-      card.className = "player-card";
-      card.innerHTML = `
-        <img src="${p.profilePic}" alt="${p.firstName}" class="profile-pic">
-        <h3><a href="${p.cricClubsLink}" target="_blank">${p.firstName} ${p.lastName}</a></h3>
-      `;
-      container.appendChild(card);
-    });
+      container.innerHTML = ""; // clear loading text
+
+      if (players.length === 0) {
+        container.innerHTML = "<p>No players added yet.</p>";
+        return;
+      }
+
+      players.forEach(player => {
+        const card = document.createElement("div");
+        card.className = "player-card";
+
+        card.innerHTML = `
+          <img src="${player.profilePic}" alt="${player.firstName} ${player.lastName}" class="player-pic" />
+          <h3>${player.firstName} ${player.lastName}</h3>
+          <p><strong>Contact:</strong> ${player.contactInfo}</p>
+          <p><strong>Emergency:</strong> ${player.emergencyContact}</p>
+          <p><a href="${player.cricClubsLink}" target="_blank">CricClubs Profile</a></p>
+        `;
+        container.appendChild(card);
+      });
+    } catch (error) {
+      container.innerHTML = `<p style="color:red;">Failed to load players: ${error}</p>`;
+    }
   }
+
+  loadPlayers();
 </script>
 </body>
 </html>
