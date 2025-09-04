@@ -39,7 +39,7 @@
   async function loadPlayers() {
     const container = document.getElementById("playersContainer");
     try {
-      const response = await fetch("http://spcanet.com/get-players.php");
+      const response = await fetch("get-players.php");
       if (!response.ok) {
         throw new Error(`Server responded with ${response.status} ${response.statusText}`);
       }

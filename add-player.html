@@ -50,7 +50,7 @@
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("https://www.spcanet.com/add-player.php", {
+      const response = await fetch("add-player.php", {
         method: "POST",
         body: formData
       });

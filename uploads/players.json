@@ -1,0 +1,18 @@
+[
+  {
+    "firstName": "Anirudh",
+    "lastName": "Ramesh",
+    "contactInfo": "anirudh@example.com",
+    "emergencyContact": "123-456-7890",
+    "cricClubsLink": "https://cricclubs.com/player/1",
+    "profilePic": "uploads/dummy1.jpg"
+  },
+  {
+    "firstName": "Theja",
+    "lastName": "Reddy",
+    "contactInfo": "theja@example.com",
+    "emergencyContact": "234-567-8901",
+    "cricClubsLink": "https://cricclubs.com/player/2",
+    "profilePic": "uploads/dummy2.jpg"
+  }
+]
