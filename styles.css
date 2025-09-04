@@ -200,3 +200,110 @@ button:hover {
   margin: 10px 0;
   padding: 8px;
 }
+
+/* Schedule Table */
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(30,60,110,0.08);
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.schedule-table th, .schedule-table td {
+  border: 1px solid #dbe2ef;
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.schedule-table th {
+  background: #25477a;   /* dark blue */
+  color: #fff;           /* white text */
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.schedule-table td {
+  color: #222a35;        /* dark gray text */
+  background: #f7f7fa;
+}
+
+.schedule-table tr:nth-child(even) td {
+  background: #eaf0fb;   /* light blue for alternate rows */
+}
+
+.schedule-table td a {
+  color: #25477a;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.schedule-table td a:hover {
+  color: #1a3c6e;
+}
+
+.tournament-logo {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background: rgba(30,60,110,0.3);
+}
+
+.modal-content {
+  background: #25477a;      /* dark blue background */
+  color: #fff;              /* white font color */
+  margin: 8% auto;
+  padding: 24px 32px;
+  border-radius: 8px;
+  width: 350px;
+  box-shadow: 0 2px 12px rgba(30,60,110,0.15);
+  position: relative;
+}
+
+.modal-content h2 {
+  color: #ffd700;           /* gold for heading */
+}
+
+.close {
+  color: #25477a;
+  position: absolute;
+  top: 12px; right: 18px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.team-btn {
+  background: #25477a;
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.team-btn:hover {
+  background: #1a3c6e;
+}
+
+#teamList li {
+  color: #fff;              /* white for player names */
+  font-size: 17px;
+  margin-bottom: 6px;
+}

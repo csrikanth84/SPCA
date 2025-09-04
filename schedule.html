@@ -23,13 +23,168 @@
     </ul>
   </nav>
   <main>
-    <section class="content">
-      <h2>Upcoming Matches</h2>
-      <p>Schedule will be updated soon. Stay tuned!</p>
-    </section>
-  </main>
+  <section class="content">
+    <h2>Upcoming Matches</h2>
+
+    <h3>
+      <img src="glt_logo.jpg" alt="GLT Logo" class="tournament-logo" />
+      Tournament 1: [2025 GLT-Michigan]
+    </h3>
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Opponent</th>
+          <th>Venue</th>
+           <th>Team</th>
+          <th>Scorecard</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025-09-06</td>
+          <td>03:00 PM</td>
+          <td>Mid Michigan Cricket Heroes MMCH</td>
+          <td>Clinton Twonship</td>
+          <td><button class="team-btn" onclick="showTeam('GLT-1')">View</button></td> 
+          <!--td><a href="#" target="_blank">View</a></td-->
+        </tr>
+        <!-- Add more matches here -->
+      </tbody>
+    </table>
+
+    <h3>
+      <img src="fcc_logo.png" alt="FCC Logo" class="tournament-logo" />
+      Tournament 2: [FCC Colors Trophy-Contenders]
+    </h3>
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Opponent</th>
+          <th>Venue</th>
+         <th>Team</th>
+         <th>Scorecard</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025-09-06</td>
+          <td>7:00 PM</td>
+          <td>Black Caps Michigan</td>
+          <td>Novi Power Park-4</td>
+          <td><button class="team-btn" onclick="showTeam('FCC-1')">View</button></td>
+          <!--td><a href="#" target="_blank">View</a></td-->
+        </tr>
+        <tr>
+          <td>2025-09-14</td>
+          <td>7:00 PM</td>
+          <td>Royal Challengers Detroit</td>
+          <td>Drake Sports Park-2</td>
+          <!--td><button class="team-btn" onclick="showTeam('FCC-2')">View</button></td-->
+          <!--td><a href="#" target="_blank">View</a></td-->
+        </tr>
+        <tr>
+          <td>2025-09-20</td>
+          <td>1:00 PM</td>
+          <td>Elite Leo's</td>
+          <td>Ashcroft Field Redford</td>
+          <!--td><button class="team-btn" onclick="showTeam('FCC-3')">View</button></td-->
+          <!--td><a href="#" target="_blank">View</a></td-->
+        </tr>
+        <tr>
+          <td>2025-09-28</td>
+          <td>5:00 PM</td>
+          <td>Bhaarath Cricket Club</td>
+          <td>Novi Power Park-2</td>
+          <!--td><button class="team-btn" onclick="showTeam('FCC-4')">View</button></td-->
+          <!--td><a href="#" target="_blank">View</a></td-->
+        </tr>
+        <tr>
+          <td>2025-10-05</td>
+          <td>11:00 AM</td>
+          <td>Racha Riders</td>
+          <td>Novi Power Park-1</td>
+          <!--td><button class="team-btn" onclick="showTeam('FCC-5')">View</button></td-->
+          <!--td><a href="#" target="_blank">View</a></td-->
+        </tr>
+        <!-- Add more matches here -->
+      </tbody>
+    </table>
+  </section>
+</main>
+<div id="teamModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Selected Team</h2>
+    <ul id="teamList">
+      <!-- Team members will be injected here -->
+    </ul>
+  </div>
+</div>
   <footer>
     <p>&copy; 2024 South Peninsula Cricket Association | spcanet.com</p>
   </footer>
+  <script>
+  // Example team data for each match
+  const teams = {
+    "GLT-1": [
+      "Arpan Shah(C)", "Rohit Bhatt Alape (VC)", "Ishan Verma (Wk)", "Vyasa Krishna Baru", "Naveen Kumar Palaniappan",
+      "Anirudh Ramesh", "Theja Reddy", "Bhavesh Krishnaram", "Jeyesh Thiagarajan", "Naveen Kumar Kati", "Vinod Kumar", "Srikanth Chimman"
+    ],
+    "FCC-1": [
+      "Srikanth Chimman(C)", "Kunal Tripathi(VC)", "Sai Teja Matiki", "Sahas Kesari", "Yogesh Kumar",
+      "Harmesh Nadendla", "Laahya Chimman", "Abhay Sood", "Ishan Verma", "Bhavesh Krishnaram", 
+    ],
+    "FCC-2": [
+      "Player L", "Player M", "Player N", "Player O", "Player P",
+      "Player Q", "Player R", "Player S", "Player T", "Player U", "Player V"
+    ],
+    "FCC-3": [
+      "Player W", "Player X", "Player Y", "Player Z", "Player AA",
+      "Player BB", "Player CC", "Player DD", "Player EE", "Player FF", "Player GG"
+    ],
+    "FCC-4": [
+      "Player HH", "Player II", "Player JJ", "Player KK", "Player LL",
+      "Player MM", "Player NN", "Player OO", "Player PP", "Player QQ", "Player RR"
+    ],
+    "FCC-5": [
+      "Player SS", "Player TT", "Player UU", "Player VV", "Player WW",
+      "Player XX", "Player YY", "Player ZZ", "Player AAA", "Player BBB", "Player CCC"
+    ]
+  };
+
+  function showTeam(date) {
+    const modal = document.getElementById('teamModal');
+    const teamList = document.getElementById('teamList');
+    teamList.innerHTML = '';
+
+    if (teams[date]) {
+      teams[date].forEach(player => {
+        const li = document.createElement('li');
+        li.textContent = player;
+        teamList.appendChild(li);
+      });
+    } else {
+      teamList.innerHTML = '<li>No team selected yet.</li>';
+    }
+
+    modal.style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('teamModal').style.display = 'none';
+  }
+
+  // Optional: Close modal when clicking outside content
+  window.onclick = function(event) {
+    const modal = document.getElementById('teamModal');
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
 </body>
 </html>
