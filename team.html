@@ -39,12 +39,21 @@
   async function loadPlayers() {
     const container = document.getElementById("playersContainer");
     try {
-      const response = await fetch("http://spcanet.com/api/get-players.php");
-      const players = await response.json();
+      const response = await fetch("http://spcanet.com/get-players.php");
+      if (!response.ok) {
+        throw new Error(`Server responded with ${response.status} ${response.statusText}`);
+      }
+
+      let players;
+      try {
+        players = await response.json();
+      } catch (jsonError) {
+        throw new Error("Invalid JSON response from server.");
+      }
 
       container.innerHTML = ""; // clear loading text
 
-      if (players.length === 0) {
+      if (!Array.isArray(players) || players.length === 0) {
         container.innerHTML = "<p>No players added yet.</p>";
         return;
       }
@@ -63,7 +72,7 @@
         container.appendChild(card);
       });
     } catch (error) {
-      container.innerHTML = `<p style="color:red;">Failed to load players: ${error}</p>`;
+      container.innerHTML = `<p style="color:red;">Failed to load players: ${error.message}</p>`;
     }
   }
 

@@ -2,6 +2,8 @@
 header("Content-Type: application/json");
 
 $uploadDir = "uploads/";
+$dataFile = "players.json";
+
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0777, true);
 }
@@ -20,10 +22,23 @@ if ($_FILES["profilePic"]["error"] === UPLOAD_ERR_OK) {
             "profilePic" => $filePath
         ];
 
-        // Save $player in database (MySQL/Postgres/etc.)
-        // Example: INSERT INTO players (...)
+        // Load existing players
+        $players = [];
+        if (file_exists($dataFile)) {
+            $json = file_get_contents($dataFile);
+            $players = json_decode($json, true);
+            if (!is_array($players)) $players = [];
+        }
 
-        echo json_encode(["success" => true]);
+        // Add new player
+        $players[] = $player;
+
+        // Save back to file
+        if (file_put_contents($dataFile, json_encode($players, JSON_PRETTY_PRINT))) {
+            echo json_encode(["success" => true]);
+        } else {
+            echo json_encode(["success" => false, "message" => "Failed to save player data"]);
+        }
         exit;
     }
 }
