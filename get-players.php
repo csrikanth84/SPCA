@@ -1,7 +1,7 @@
 <?php
 header("Content-Type: application/json");
 
-$dataFile = "players.json";
+$dataFile = "uploads/players.json";
 $players = [];
 
 if (file_exists($dataFile)) {

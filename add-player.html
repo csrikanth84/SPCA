@@ -55,12 +55,9 @@
         body: formData
       });
 
-      const text = await response.text();
-      console.log("Raw response:", text);
-
       let result;
       try {
-        result = JSON.parse(text);
+        result = await response.json();
       } catch (err) {
         alert("Invalid JSON response from server.");
         return;

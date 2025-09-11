@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>SPCA | Team</title>
   <link rel="stylesheet" href="styles.css" />
+
 </head>
 <body>
 <header>
@@ -19,14 +20,64 @@
     <li><a href="schedule.html">Schedule</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="add-player.html">Add Player</a></li>
   </ul>
 </nav>
 
 <main>
   <section class="content">
-    <div id="playersContainer" class="players-grid">
-      <p>Loading team members...</p>
+    <div class="players-grid">
+      <div class="player-card">
+        <!--img src="uploads/player1.jpg" alt="John Doe" class="player-pic" /-->
+        <h3>ARPAN SHAH</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3478069&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+      <div class="player-card">
+        <!--img src="uploads/player2.jpg" alt="Jane Smith" class="player-pic" /-->
+        <h3>ISHAN VERMA</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3322658&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>ROHITH BHATT ALAPE</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3543832&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+       <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>VYASA KRISHNA BARU</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3481264&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>SAI TEJA MATIKI</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=2994874&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>KUNAL TRIPATHI</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3628116&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+      <div class="player-card">
+        <img src="profilepics/SRIKANTH.jpeg" alt="Sam Patel" class="player-pic" />
+        <h3>SRIKANTH CHIMMAN</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3570197&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>ANIRUDH RAMESH</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3482535&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>KUNAL SINGH</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=2866391&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>NAVEEN KUMAR PALANIAPPAN</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=1919016&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+      
+      <!-- Add more player cards as needed -->
     </div>
   </section>
 </main>
@@ -34,49 +85,5 @@
 <footer>
   <p>&copy; 2024 South Peninsula Cricket Association | spcanet.com</p>
 </footer>
-
-<script>
-  async function loadPlayers() {
-    const container = document.getElementById("playersContainer");
-    try {
-      const response = await fetch("get-players.php");
-      if (!response.ok) {
-        throw new Error(`Server responded with ${response.status} ${response.statusText}`);
-      }
-
-      let players;
-      try {
-        players = await response.json();
-      } catch (jsonError) {
-        throw new Error("Invalid JSON response from server.");
-      }
-
-      container.innerHTML = ""; // clear loading text
-
-      if (!Array.isArray(players) || players.length === 0) {
-        container.innerHTML = "<p>No players added yet.</p>";
-        return;
-      }
-
-      players.forEach(player => {
-        const card = document.createElement("div");
-        card.className = "player-card";
-
-        card.innerHTML = `
-          <img src="${player.profilePic}" alt="${player.firstName} ${player.lastName}" class="player-pic" />
-          <h3>${player.firstName} ${player.lastName}</h3>
-          <p><strong>Contact:</strong> ${player.contactInfo}</p>
-          <p><strong>Emergency:</strong> ${player.emergencyContact}</p>
-          <p><a href="${player.cricClubsLink}" target="_blank">CricClubs Profile</a></p>
-        `;
-        container.appendChild(card);
-      });
-    } catch (error) {
-      container.innerHTML = `<p style="color:red;">Failed to load players: ${error.message}</p>`;
-    }
-  }
-
-  loadPlayers();
-</script>
 </body>
 </html>

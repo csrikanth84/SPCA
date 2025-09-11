@@ -38,6 +38,7 @@
           <th>Opponent</th>
           <th>Venue</th>
            <th>Team</th>
+           <th>Result></th>
           <th>Scorecard</th>
         </tr>
       </thead>
@@ -48,6 +49,23 @@
           <td>Mid Michigan Cricket Heroes MMCH</td>
           <td>Clinton Township</td>
           <td><button class="team-btn" onclick="showTeam('GLT-1')">View</button></td> 
+          <td>Lost</td>
+          <td><a href="https://cricclubs.com/MichCA/viewScorecard.do?matchId=5118&clubId=2119" target="_blank">View</a></td>
+        </tr>
+        <tr>
+          <td>2025-09-13</td>
+          <td>10:30 AM</td>
+          <td>Michigan Dreamers Cricket Club MIDS</td>
+          <td>Jayne Cricket Ground</td>
+          <td><button class="team-btn" onclick="showTeam('GLT-2')">View</button></td> 
+          <!--td><a href="#" target="_blank">View</a></td-->
+        </tr>
+        <tr>
+          <td>2025-09-20</td>
+          <td>10:30 AM</td>
+          <td>Kings XI KNXI</td>
+          <td>Murphy Cricket Ground</td>
+          <!--td><button class="team-btn" onclick="showTeam('GLT-2')">View</button></td--> 
           <!--td><a href="#" target="_blank">View</a></td-->
         </tr>
         <!-- Add more matches here -->
@@ -66,6 +84,7 @@
           <th>Opponent</th>
           <th>Venue</th>
          <th>Team</th>
+          <th>Result</th>
          <th>Scorecard</th>
         </tr>
       </thead>
@@ -76,14 +95,15 @@
           <td>Black Caps Michigan</td>
           <td>Novi Power Park-4</td>
           <td><button class="team-btn" onclick="showTeam('FCC-1')">View</button></td>
-          <!--td><a href="#" target="_blank">View</a></td-->
+          <td>Lost</td>
+          <td><a href="https://cricclubs.com/farmingtoncc/viewScorecard.do?matchId=6091&clubId=27071" target="_blank">View</a></td>
         </tr>
         <tr>
           <td>2025-09-14</td>
           <td>7:00 PM</td>
           <td>Royal Challengers Detroit</td>
           <td>Drake Sports Park-2</td>
-          <!--td><button class="team-btn" onclick="showTeam('FCC-2')">View</button></td-->
+          <td><button class="team-btn" onclick="showTeam('FCC-2')">View</button></td>
           <!--td><a href="#" target="_blank">View</a></td-->
         </tr>
         <tr>
@@ -131,16 +151,20 @@
   // Example team data for each match
   const teams = {
     "GLT-1": [
-      "Arpan Shah(C)", "Rohit Bhatt Alape (VC)", "Ishan Verma (Wk)", "Vyasa Krishna Baru", "Naveen Kumar Palaniappan",
-      "Anirudh Ramesh", "Theja Reddy", "Bhavesh Krishnaram", "Jeyesh Thiagarajan", "Naveen Kumar Kati", "Vinod Kumar", "Srikanth Chimman"
+      "Arpan Shah(C)", "Rohit Bhatt Alape (VC)", "Ishan Verma", "Vyasa Krishna Baru", "Naveen Kumar Palaniappan",
+      "Anirudh Ramesh", "Theja Reddy", "Bhavesh Krishnaram", "Jeyesh Thiagarajan", "Naveen Kumar Kati", "Surya Sathiyamurthy (Wk)"
+    ],
+     "GLT-2": [
+      "Arpan Shah(C)", "Rohit Bhatt Alape (VC)", "Ishan Verma", "Vyasa Krishna Baru", "Naveen Kumar Palaniappan", "Surya Sathiyamurthy (Wk)",
+      "Theja Reddy", "Bhavesh Krishnaram", "Jeyesh Thiagarajan", "Naveen Kumar Kati", "Vinod Kumar", "Srikanth Chimman", "Kunal Tripathi"
     ],
     "FCC-1": [
       "Srikanth Chimman(C)", "Kunal Tripathi(VC)", "Sai Teja Matiki", "Sahas Kesari", "Yogesh Kumar",
       "Harmesh Nadendla", "Laahya Chimman", "Abhay Sood", "Ishan Verma", "Bhavesh Krishnaram", 
     ],
-    "FCC-2": [
-      "Player L", "Player M", "Player N", "Player O", "Player P",
-      "Player Q", "Player R", "Player S", "Player T", "Player U", "Player V"
+     "FCC-2": [
+      "Srikanth Chimman(C)", "Kunal Tripathi(VC)", "Sai Teja Matiki (Wk)", "Sahas Kesari", "Yogesh Kumar",
+      "Harmesh Nadendla", "Ishan Verma", "Bhavesh Krishnaram", "Shivam Setia", "Arpan Shah", "Rohit Bhatt Alape", "Vinay Gowda"
     ],
     "FCC-3": [
       "Player W", "Player X", "Player Y", "Player Z", "Player AA",
