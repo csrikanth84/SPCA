@@ -25,15 +25,32 @@
     <section class="content">
       <h2>Match Moments</h2>
       <div class="gallery-grid">
-        <img src="https://placehold.co/300x200?text=Match+1" alt="Match 1" />
-        <img src="https://placehold.co/300x200?text=Match+2" alt="Match 2" />
-        <img src="https://placehold.co/300x200?text=Practice" alt="Practice" />
-        <img src="https://placehold.co/300x200?text=Victory" alt="Victory" />
+        <img src="Gallery/GLT_M2_1.jpg" alt="GLT-M2-Teja" onclick="openModal(this.src)" />
+        <img src="Gallery/GLT_M2_2.jpg" alt="GLT-M2-Legends" onclick="openModal(this.src)" />
+        <img src="Gallery/GLT_M2_3.jpg" alt="GLT-M2-TeamSPCA" onclick="openModal(this.src)" />
+      </div>
+      
+      <!-- Modal structure -->
+      <div id="imgModal" class="img-modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content-img" id="modalImg">
       </div>
     </section>
   </main>
   <footer>
     <p>&copy; 2024 South Peninsula Cricket Association | spcanet.com</p>
   </footer>
+
+  <script>
+    // JavaScript for modal image viewing
+    function openModal(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('imgModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('imgModal').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
