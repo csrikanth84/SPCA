@@ -56,11 +56,11 @@ nav {
   margin-top: 0.5rem;
 }
 
-dropdown-menu li {
+.dropdown-menu li {
   list-style: none;
 }
 
-dropdown-menu a {
+.dropdown-menu a {
   color: #ffcc00;
   padding: 12px 16px;
   text-decoration: none;
@@ -69,14 +69,43 @@ dropdown-menu a {
   font-size: 0.95rem;
 }
 
-dropdown-menu a:hover {
+.dropdown-menu a:hover {
   background-color: #ffcc00;
   color: #001b44;
   border-radius: 4px;
 }
 
-dropdown:hover .dropdown-menu {
+nav ul li:hover .dropdown-menu {
   display: block;
+}
+
+/* Schedule Selector */
+.schedule-selector {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(0, 27, 68, 0.8);
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.schedule-selector label {
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  color: #ffcc00;
+}
+
+.schedule-selector select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 2px solid #ffcc00;
+  background-color: #001a33;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.schedule-selector select:hover {
+  background-color: #001b44;
 }
 nav ul {
   list-style-type: none;
@@ -85,6 +114,10 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 2rem;
+}
+
+nav ul li {
+  position: relative;
 }
 
 nav a {
