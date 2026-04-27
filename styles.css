@@ -151,8 +151,8 @@ nav a:hover {
   }
   
   .content {
-    padding: 1rem;
-    margin: 1rem auto;
+    padding: 0;
+    margin: 0 auto;
   }
   
   /* Table wrapper for horizontal scroll on mobile */
@@ -316,18 +316,18 @@ button:hover {
 .schedule-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   box-shadow: 0 2px 8px rgba(30,60,110,0.08);
   background: #fff;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
 .schedule-table th, .schedule-table td {
   border: 1px solid #dbe2ef;
-  padding: 6px 8px;
+  padding: 4px 6px;
   text-align: center;
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .schedule-table th {
