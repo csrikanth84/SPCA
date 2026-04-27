@@ -155,13 +155,13 @@ nav a:hover {
     margin: 0 auto;
   }
   
-  /* Table wrapper for horizontal scroll on mobile */
+  /* Table wrapper for horizontal scroll on mobile 
   .table-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     margin: 0 -1rem;
     padding: 0 1rem;
-  }
+  }*/
   
   .schedule-table {
     min-width: 500px;
@@ -321,6 +321,7 @@ button:hover {
   background: #fff;
   border-radius: 4px;
   overflow: hidden;
+  table-layout: auto;
 }
 
 .schedule-table th, .schedule-table td {
