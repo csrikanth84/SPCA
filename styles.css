@@ -131,7 +131,42 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Section Panels (About, Content, Contact) */
+/* Schedule iframe responsive */
+.schedule {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+#schedule-iframe {
+  width: 100%;
+  height: 1000px;
+  border: none;
+  max-width: 100vw;
+}
+
+@media (max-width: 768px) {
+  #schedule-iframe {
+    height: 1200px;
+  }
+  
+  .content {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+  
+  /* Table wrapper for horizontal scroll on mobile */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -1rem;
+    padding: 0 1rem;
+  }
+  
+  .schedule-table {
+    min-width: 500px;
+  }
+}
 .about, .content {
   padding: 2rem;
   max-width: 800px;
@@ -290,9 +325,9 @@ button:hover {
 
 .schedule-table th, .schedule-table td {
   border: 1px solid #dbe2ef;
-  padding: 12px 8px;
+  padding: 6px 8px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .schedule-table th {

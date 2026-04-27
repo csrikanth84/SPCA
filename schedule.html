@@ -35,8 +35,8 @@
       </div>
 
       <div class="schedule">
-
-     </div>
+        <iframe id="schedule-iframe" src="schedule_2026.html"></iframe>
+      </div>
     </section>
   </main>
 
@@ -52,13 +52,12 @@
 
   <script>
     function navigateToSchedule() {
-        
       var select = document.getElementById('year-select');
-      const scheduleDiv = document.querySelector('.schedule');
+      var iframe = document.getElementById('schedule-iframe');
 
       var selectedValue = select.value;
-      if (selectedValue) {
-        scheduleDiv.innerHTML = `<iframe src="${selectedValue}" width="100%" height="1000px"></iframe>`;
+      if (selectedValue && iframe) {
+        iframe.src = selectedValue;
       }
     }
     window.onload = function () {
@@ -71,12 +70,6 @@
     document.addEventListener('DOMContentLoaded', function() {
       navigateToSchedule();
     });
-    
-    // Optional: Load navigation bar from an external file (if needed)
-    // fetch('nav.html')
-    //   .then(response => response.text())
-    //   .then(data => {
-    //
   </script>
 </body>
 </html>
