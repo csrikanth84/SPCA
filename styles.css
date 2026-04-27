@@ -145,9 +145,9 @@ nav a:hover {
   max-width: 100vw;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   #schedule-iframe {
-    height: 1200px;
+    height: 1000px;
   }
   
   .content {
