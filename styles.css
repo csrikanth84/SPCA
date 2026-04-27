@@ -163,10 +163,7 @@ nav a:hover {
     padding: 0 1rem;
   }*/
   
-  .schedule-table {
-    min-width: 500px;
-    grid-auto-columns: max-content;
-  }
+  
 }
 .about, .content {
   padding: 2rem;
@@ -322,7 +319,6 @@ button:hover {
   background: #fff;
   border-radius: 4px;
   overflow: hidden;
-  table-layout: auto;
    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
@@ -330,7 +326,7 @@ button:hover {
   border: 1px solid #dbe2ef;
   padding: 1px 2px;
   text-align: center;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .schedule-table th {
