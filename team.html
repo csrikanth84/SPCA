@@ -25,7 +25,13 @@
 
 <main>
   <section class="content">
-    <div class="players-grid">
+    <div class="tabs">
+  <button class="tab-btn active" onclick="openTab(event, 't30')">Team SPCA-T30</button>
+  <button class="tab-btn" onclick="openTab(event, 't20')">Team SPCA-T20</button>
+</div>
+
+<div id="t30" class="tab-content active"> 
+  <div class="players-grid">
       <div class="player-card">
         <!--img src="uploads/player1.jpg" alt="John Doe" class="player-pic" /-->
         <h3>ARPAN SHAH</h3>
@@ -46,18 +52,14 @@
         <h3>VYASA KRISHNA BARU</h3>
         <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3481264&clubId=2119" target="_blank">Profile</a></p>
       </div>
-      <!-- <div class="player-card">
-        <img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" >
-        <h3>SAI TEJA MATIKI</h3>
-        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=2994874&clubId=2119" target="_blank">Profile</a></p>
-      </div> -->
+     
       <div class="player-card">
         <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
         <h3>KUNAL TRIPATHI</h3>
         <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3628116&clubId=2119" target="_blank">Profile</a></p>
       </div>
       <div class="player-card">
-        <!--img src="profilepics/SRIKANTH.jpeg" alt="Sam Patel" class="player-pic" /-->
+        <!-- <img src="profilepics/SRIKANTHT30.jpeg" alt="SRIKANTH" class="player-pic"/> -->
         <h3>SRIKANTH CHIMMAN</h3>
         <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3570197&clubId=2119" target="_blank">Profile</a></p>
       </div>
@@ -65,17 +67,7 @@
         <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
         <h3>ANIRUDH RAMESH</h3>
         <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3482535&clubId=2119" target="_blank">Profile</a></p>
-      </div>
-      <div class="player-card">
-        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
-        <h3>KUNAL SINGH</h3>
-        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=2866391&clubId=2119" target="_blank">Profile</a></p>
-      </div>
-      <!-- <div class="player-card">
-        <img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" />
-        <h3>ABHAY SOOD</h3>
-        <p><a href="https://cricclubs.com/farmingtoncc/viewPlayer.do?playerId=3475416&clubId=27071" target="_blank">Profile</a></p>
-      </div> -->
+      </div>      
       <div class="player-card">
         <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
         <h3>NAVEEN KUMAR PALANIAPPAN</h3>
@@ -95,12 +87,7 @@
         <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
         <h3>KAASHYAP KATTAMUDI</h3>
         <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=2632731&clubId=2119" target="_blank">Profile</a></p>
-      </div>     
-      <div class="player-card">
-        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
-        <h3>NAVEEN KUMAR KATI</h3>
-        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=6153699&clubId=2119" target="_blank">Profile</a></p>
-      </div>      
+      </div>           
       <div class="player-card">
         <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
         <h3>SURYA SATHIYAMURTHY</h3>
@@ -110,7 +97,114 @@
         <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
         <h3>THIAGARAJAN CHIDAMBARESWARAN</h3>
         <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=571340&clubId=2119" target="_blank">Profile</a></p>
+      </div>           
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>HARMESH NADENDLA</h3>
+        <p><a href="https://cricclubs.com/MichCA/user/yI4G78qsfDsdiV0pCu7o2A?playerName=Harmesh+Nadendla" target="_blank">Profile</a></p>
+      </div>     
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>SAHAS KESARI</h3>
+        <p><a href="https://cricclubs.com/MichCA/user/52QLKTixz1euZ_7Nu4TW5Q?playerName=Sahas+Kesari" target="_blank">Profile</a></p>
+      </div>   
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>YOGESH KUMAR</h3>
+        <p><a href="https://cricclubs.com/MichCA/user/PTTKGkaP6guRT-DvEG7Y4Q?playerName=Yogesh+Kumar+Karuppiah" target="_blank">Profile</a></p>
       </div>
+        <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>ADARSH VEMURI</h3>
+        <p><a href="https://cricclubs.com/MichCA/user/cw0AtM-NjztJSYt-JPS4vQ?playerName=Adarsh+Vemuri" target="_blank">Profile</a></p>
+      </div>
+     
+        <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>ADITYA VARANASI</h3>
+        <p><a href="https://cricclubs.com/MichCA/user/bz4SAbpJ9nWcsydUi9iF4A?playerName=Aditya+Varanasi" target="_blank">Profile</a></p>
+      </div>
+      
+        <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>ROHITH SHARMA CHILIVELLY</h3>
+        <p><a href="http://cricclubs.com/MichCA/user/t2pMEqFvqsIh9FkuE1DsEA?playerName=Rohith+Sharma+Chilivelly" target="_blank">Profile</a></p>
+      </div>
+      
+        <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>SAKETH BODDAPATI</h3>
+        <p><a href="https://cricclubs.com/MichCA/user/9OYBpccchhWmfnrQO_dkrw?playerName=Saketh+Boddapati" target="_blank">Profile</a></p>
+      </div>
+    
+        <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>SOURAV PAUL</h3>
+        <p><a href="https://cricclubs.com/MichCA/user/I9CNkxfoqcNBgZv6D7cYDg?playerName=Sourav+Paul" target="_blank">Profile</a></p>
+      </div>
+              
+        <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>VARUN JAYARAM</h3>
+        <p><a href="https://cricclubs.com/MichCA/user/9W7McxKpYP-cm5X8OOBffQ?playerName=Varun+Jayaram" target="_blank">Profile</a></p>
+      </div>
+      
+      <!-- Add more player cards as needed -->
+
+    </div>
+</div>
+<div id="t20" class="tab-content"> 
+ <div class="players-grid">
+  <div class="player-card">
+        <!--img src="uploads/player1.jpg" alt="John Doe" class="player-pic" /-->
+        <h3>ARPAN SHAH</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3478069&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+      <div class="player-card">
+        <!--img src="uploads/player2.jpg" alt="Jane Smith" class="player-pic" /-->
+        <h3>ISHAN VERMA</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3322658&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>ROHITH BHATT ALAPE</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3543832&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+       <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>VYASA KRISHNA BARU</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3481264&clubId=2119" target="_blank">Profile</a></p>
+      </div>      
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>KUNAL TRIPATHI</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3628116&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+      <div class="player-card">
+        <!-- <img src="profilepics/SRIKANTHT20.jpeg" alt="SRIKANTH" class="player-pic" /> -->
+        <h3>SRIKANTH CHIMMAN</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3570197&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>ANIRUDH RAMESH</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3482535&clubId=2119" target="_blank">Profile</a></p>
+      </div>
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>KUNAL SINGH</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=2866391&clubId=2119" target="_blank">Profile</a></p>
+      </div>      
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>BHAVESH KRISHNARAM</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=3682189&clubId=2119" target="_blank">Profile</a></p>
+      </div>          
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>NAVEEN KUMAR KATI</h3>
+        <p><a href="https://cricclubs.com/MichCA/viewPlayer.do?playerId=6153699&clubId=2119" target="_blank">Profile</a></p>
+      </div>     
       <div class="player-card">
         <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
         <h3>VINOD KUMAR</h3>
@@ -119,21 +213,43 @@
       <div class="player-card">
         <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
         <h3>HARMESH NADENDLA</h3>
-        <p><a href="https://cricclubs.com/farmingtoncc/viewPlayer.do?playerId=6168850&clubId=27071" target="_blank">Profile</a></p>
-      </div>     
-      <div class="player-card">
-        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
-        <h3>SAHAS KESARI</h3>
-        <p><a href="https://cricclubs.com/farmingtoncc/viewPlayer.do?playerId=2702378&clubId=27071" target="_blank">Profile</a></p>
-      </div>   
+        <p><a href="https://cricclubs.com/MichCA/user/yI4G78qsfDsdiV0pCu7o2A?playerName=Harmesh+Nadendla" target="_blank">Profile</a></p>
+      </div>        
       <div class="player-card">
         <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
         <h3>YOGESH KUMAR</h3>
-        <p><a href="https://cricclubs.com/farmingtoncc/viewPlayer.do?playerId=4922050&clubId=27071" target="_blank">Profile</a></p>
+        <p><a href="https://cricclubs.com/MichCA/user/PTTKGkaP6guRT-DvEG7Y4Q?playerName=Yogesh+Kumar+Karuppiah" target="_blank">Profile</a></p>
       </div>
-        
-      <!-- Add more player cards as needed -->
-    </div>
+         <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>ADARSH VEMURI</h3>
+        <p><a href="https://cricclubs.com/MichCA/user/cw0AtM-NjztJSYt-JPS4vQ?playerName=Adarsh+Vemuri" target="_blank">Profile</a></p>
+      </div>
+                 
+        <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>ROHITH SHARMA CHILIVELLY</h3>
+        <p><a href="http://cricclubs.com/MichCA/user/t2pMEqFvqsIh9FkuE1DsEA?playerName=Rohith+Sharma+Chilivelly" target="_blank">Profile</a></p>
+      </div>     
+    
+        <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>SOURAV PAUL</h3>
+        <p><a href="https://cricclubs.com/MichCA/user/I9CNkxfoqcNBgZv6D7cYDg?playerName=Sourav+Paul" target="_blank">Profile</a></p>
+      </div>
+              
+        <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>VARUN JAYARAM</h3>
+        <p><a href="https://cricclubs.com/MichCA/user/9W7McxKpYP-cm5X8OOBffQ?playerName=Varun+Jayaram" target="_blank">Profile</a></p>
+      </div>
+      <div class="player-card">
+        <!--img src="uploads/player3.jpg" alt="Sam Patel" class="player-pic" /-->
+        <h3>PRASHANTH SHANKARA</h3>
+        <p><a href="https://cricclubs.com/MichCA/user/AB91ElNE9SJG8UYjuCBTvQ?playerName=Prashanth+Shankara" target="_blank">Profile</a></p>
+      </div>
+</div>
+</div>
   </section>
 </main>
 
@@ -146,4 +262,14 @@
       <a href="#"><img src="icons_youtube.png" alt="Youtube"></a>
     </div>
   </footer>
+  <script>
+    function openTab(evt, tabId) {
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+  document.getElementById(tabId).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
+
+  </script>
 </html>

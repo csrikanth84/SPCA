@@ -489,3 +489,34 @@ button:hover {
   cursor: pointer;
   z-index: 1001;
 }
+.tabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.tab-btn.active {
+  background: #003366;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px 0;
+}
+
+.tab-content.active {
+  display: block;
+}
+
