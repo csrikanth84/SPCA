@@ -412,10 +412,52 @@ button:hover {
   background: #1a3c6e;
 }
 
+#teamList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 #teamList li {
-  color: #fff;              /* white for player names */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
   font-size: 17px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+#teamList li::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  background-image: url("logo.jpeg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.player-name {
+  flex: 1;
+  text-align: left;
+}
+
+.player-role {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(255, 204, 0, 0.15);
+  color: #ffcc00;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .players-grid {
@@ -437,7 +479,7 @@ button:hover {
 }
 .player-pic {
   width: 100px;
-  height: 100px;
+  height: 120px;
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 1rem;

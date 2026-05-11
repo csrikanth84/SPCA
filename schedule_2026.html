@@ -22,8 +22,8 @@
           <th>Opponent</th>
           <th>Venue</th>
           <th>H/A</th>
-           <!-- <th>Team</th>
-           <th>Result</th>
+          <th>Team</th>
+           <!--th>Result</th>
           <th>Scorecard</th> -->
         </tr>
       </thead>
@@ -136,8 +136,8 @@
           <th>Opponent</th>
           <th>Venue</th>
           <th>H/A</th>
-           <!-- <th>Team</th>
-           <th>Result</th>
+           <th>Team</th>
+          <!--  <th>Result</th>
           <th>Scorecard</th> -->
         </tr>
       </thead>
@@ -149,8 +149,8 @@
           <td>Dark Invaders</td>
           <td><a href="https://maps.app.goo.gl/YwmbWNeDZkgbVhXv7" target="_blank">Joseph Jr Park</a></td>
           <td>Home</td>
-          <!-- <td><button class="team-btn" onclick="showTeam('T30-1')">View</button></td> 
-          <td>Won</td>
+          <td><button class="team-btn" onclick="showTeam('T30-1')">View</button></td> 
+         <!--  <td>Won</td>
           <td><a href="https://cricclubs.com/MichCA/viewScorecard.do?matchId=5118&clubId=2119" target="_blank">View</a></td> -->
         </tr>
         <tr>
@@ -259,10 +259,12 @@
   // Example team data for each match
   const teams = {
     "T20-1": [
-      "Arpan Shah(C)", "Rohit Bhatt Alape (VC)", "Ishan Verma", "Vyasa Krishna Baru", "Naveen Kumar Palaniappan",
-      "Anirudh Ramesh", "Theja Reddy", "Bhavesh Krishnaram", "Jeyesh Thiagarajan", "Naveen Kumar Kati", "Surya Sathiyamurthy (Wk)"
+      "Ishan Verma(C)", "Arpan Shah(VC)", "Rohith Bhatt Alape",  
+      "Vyasa Krishna Baru", "Bhavesh Krishnaram", "Kunal Tripathi", 
+      "Kunal Singh", "Adarsh Vemuri", "Rohit Sharma", "Harmesh Nadendla", 
+      "Prashanth Shankaran", "Nitish Nishtala"
     ],
-     "T20-2": [
+    "T20-2": [
       "Arpan Shah(C)", "Rohit Bhatt Alape (VC)", "Ishan Verma", "Vyasa Krishna Baru", "Naveen Kumar Palaniappan", "Surya Sathiyamurthy (Wk)",
       "Theja Reddy", "Bhavesh Krishnaram", "Jeyesh Thiagarajan", "Naveen Kumar Kati", "Vinod Kumar", "Srikanth Chimman", "Kunal Tripathi"
     ],
@@ -290,9 +292,10 @@
       "Vyasa Krishna Baru (C)", "Naveen Kumar Palaniappan", "Surya Sathiyamurthy (Wk)", "Kashyap Kattamudi", "Nani Sai Sriya",
       "Theja Reddy", "Anirudh Ramesh", "Jeyesh Thiagarajan", "Naveen Kumar Kati", "Vinod Kumar", "Srikanth Chimman", "Kunal Tripathi"
     ],
+
     "T30-1": [
-      "Srikanth Chimman(C)", "Kunal Tripathi(VC)", "Sai Teja Matiki (Wk)", "Sahas Kesari", "Yogesh Kumar",
-      "Harmesh Nadendla","Shivam Setia", "Naveen Kumar Bichal", "Abhay Sood", "Ishan Verma", "Bhavesh Krishnaram", "Vinay Gowda"
+      "Rohith Bhatt Alape (C)", "Vyasa Krishna Baru (VC)", "Aditya Varanasi", "Bhavesh Krishnaram","Jeyesh Thiagarajan",
+      "Naveen Kumar", "Saketh Boddapati", "Sourav Paul", "Surya Sathiyamurthy", "Theja Reddy", "Varun Jayaram", "Yogesh Kumar"
     ],
      "T30-2": [
       "Srikanth Chimman(C)", "Sai Teja Matiki(VC) (Wk)", "Sahas Kesari", "Yogesh Kumar",
@@ -325,6 +328,39 @@
     
     };
 
+  const playerRoles = {
+    "Arpan Shah": "All-rounder",
+    "Rohith Bhatt Alape": "All-rounder",
+    "Vyasa Krishna Baru": "All-rounder",
+    "Kunal Tripathi": "Bowler",
+    "Srikanth Chimman": "Batsman",
+    "Ishan Verma": "All-rounder",
+    "Anirudh Ramesh": "All-rounder",
+    "Kunal Singh": "Batsman",
+    "Naveen Kumar": "Bowler",
+    "Kashyap Kattamudi": "All-rounder",
+    "Bhavesh Krishnaram": "Bowler",
+    "Jeyesh Thiagarajan": "Batsman",    
+    "Aditya Varanasi": "Wicketkeeper-Batsman",
+    "Theja Reddy": "All-rounder",
+    "Surya Sathiyamurthy": "Wicketkeeper-Batsman",
+    "Sahas Kesari": "Batsman",
+    "Saketh Boddapati": "All-rounder",
+    "Sourav Paul": "Batsman",
+    "Yogesh Kumar": "Bowler",
+    "Varun Jayaram": "All-rounder",
+    "Rohith Sharma": "Bowler",
+    "Adarsh Vemuri": "All-rounder",
+    "Harmesh Nadendla": "Bowler",
+    "Vinod Kumar": "Bowler",
+    "Prashanth Shankaran": "Bowler",
+  };
+
+  function getPlayerRole(rawName) {
+    const name = rawName.replace(/\s*\(.*\)$/, '').trim();
+    return playerRoles[name] || 'All-rounder';
+  }
+
   function showTeam(date) {
     const modal = document.getElementById('teamModal');
     const teamList = document.getElementById('teamList');
@@ -332,8 +368,13 @@
 
     if (teams[date]) {
       teams[date].forEach(player => {
+        const playerName = typeof player === 'string' ? player : player.name;
+        const role = typeof player === 'string' ? getPlayerRole(player) : player.role || getPlayerRole(player.name);
+
         const li = document.createElement('li');
-        li.textContent = player;
+        li.innerHTML = `
+          <span class="player-name">${playerName}</span>
+        `;
         teamList.appendChild(li);
       });
     } else {
