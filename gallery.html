@@ -51,7 +51,7 @@
       padding: 10px 0;
     }
 
-        .gallery-thumb {
+    .gallery-thumb {
       width: 50px;
       height: 50px;
       object-fit: cover;
@@ -106,16 +106,43 @@
 </footer>
 
 <script>
-  const galleryImages = [
-    "Gallery/GLT_M2_1.jpg",
-    "Gallery/GLT_M2_2.jpg",
-    "Gallery/GLT_M2_3.jpg",
-    "Gallery/T30TeamMatch1.jpeg",
-    "Gallery/HardFight.jpeg",
-    "Gallery/TheDugOut.jpeg"
-  ];
-
+  // Try to fetch list of images from server; fallback to a small hardcoded list if unavailable.
+  let galleryImages = [];
   let currentIndex = 0;
+
+  async function loadGalleryList() {
+    try {
+      const res = await fetch('Gallery');
+      if (!res.ok) throw new Error('Network response not ok');
+      const images = await res.json();
+      if (Array.isArray(images) && images.length) {
+        galleryImages = images;
+      } else {
+        galleryImages = fallbackImages();
+      }
+    } catch (e) {
+      // fallback when no API available (e.g., static file viewing)
+      galleryImages = fallbackImages();
+    }
+    renderGallery(galleryImages);
+  }
+
+  function fallbackImages() {
+    return [      
+      "Gallery/T20Match2TeamPic.jpeg",
+      "Gallery/T20Match2Vyasa50.jpeg",
+      "Gallery/T20Match2Rohit.jpeg",
+        "Gallery/T20Match1KunalS.jpeg",
+      "Gallery/T20Match1Prashanth.jpeg",
+      "Gallery/T20Match1RohitS.jpeg",
+       "Gallery/T30TeamMatch1.jpeg",
+      "Gallery/HardFight.jpeg",
+      "Gallery/TheDugOut.jpeg",
+      "Gallery/GLT_M2_1.jpg",
+      "Gallery/GLT_M2_2.jpg",
+      "Gallery/GLT_M2_3.jpg",     
+    ];
+  }
 
   function renderGallery(images) {
     const grid = document.getElementById("galleryGrid");
@@ -133,7 +160,7 @@
 
   function openPreview(index) {
     currentIndex = index;
-    document.getElementById("mainGalleryImg").src = galleryImages[currentIndex];
+    document.getElementById("mainGalleryImg").src = galleryImages[currentIndex] || '';
     const thumbs = document.querySelectorAll(".gallery-thumb");
     thumbs.forEach((thumb, idx) => {
       thumb.classList.toggle("selected", idx === currentIndex);
@@ -141,11 +168,13 @@
   }
 
   function navigate(direction) {
+    if (!galleryImages.length) return;
     currentIndex = (currentIndex + direction + galleryImages.length) % galleryImages.length;
     openPreview(currentIndex);
   }
 
-  renderGallery(galleryImages);
+  // Load gallery list on page load
+  window.addEventListener('DOMContentLoaded', loadGalleryList);
 </script>
 </body>
 </html>
